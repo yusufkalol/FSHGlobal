@@ -1,4 +1,4 @@
-export const gridData = [
+export const homeGrid = [
   {
     key: '1',
     itemName: 'New Ticket',
