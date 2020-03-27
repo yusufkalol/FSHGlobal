@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import UpcomingRequests from '../screens/UpcomingRequests';
+import UpcomingRequestsScreen from '../screens/UpcomingRequestsScreen';
 import CompletedRequests from '../screens/CompletedRequests';
 import HomeScreen from '../screens/HomeScreen';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -16,7 +16,7 @@ export const RequestStackScreen = () => {
     <RequestTopTab.Navigator>
       <RequestTopTab.Screen
         name="Upcoming"
-        component={UpcomingRequests}
+        component={UpcomingRequestsScreen}
         tabBarLabel="Customer Requests"
       />
       <RequestTopTab.Screen name="Completed" component={CompletedRequests} />

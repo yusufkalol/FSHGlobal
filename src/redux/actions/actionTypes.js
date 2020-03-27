@@ -1,1 +1,2 @@
+export const LOAD_HOMEGRID = 'LOAD_HOMEGRID';
 export const LOAD_REQUESTS = 'LOAD_REQUESTS';
