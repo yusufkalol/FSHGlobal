@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class HomeGridItem extends Component {
   render() {
-    const {gridItem} = this.props;
+    const {gridItem, navigation} = this.props;
     return (
-      <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.container}
+        onPress={() =>
+          gridItem.itemName === 'New Ticket' && navigation.push('JobDetails')
+        }>
         <Icon
           name={gridItem.icon.iconName}
           size={30}
@@ -14,7 +18,7 @@ class HomeGridItem extends Component {
         />
         <Text>{gridItem.itemName}</Text>
         <Text style={styles.count}>{gridItem.count}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

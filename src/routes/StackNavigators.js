@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import UpcomingRequestsScreen from '../screens/UpcomingRequestsScreen';
+import JobDetailsScreen from '../screens/JobDetailsScreen';
 import CompletedRequests from '../screens/CompletedRequests';
 import HomeScreen from '../screens/HomeScreen';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -42,14 +43,7 @@ function MyHeader({title, style}) {
     </View>
   );
 }
-function DetailsScreen({navigation}) {
-  return (
-    <View
-      style={{flex: 1, justifyContent: 'space-around', alignItems: 'center'}}>
-      <Text>Details Screen in Home</Text>
-    </View>
-  );
-}
+
 export const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator initialRouteName="Home">
@@ -74,7 +68,7 @@ export const HomeStackScreen = () => {
           },
         }}
       />
-      <HomeStack.Screen name="Details" component={DetailsScreen} />
+      <HomeStack.Screen name="JobDetails" component={JobDetailsScreen} />
     </HomeStack.Navigator>
   );
 };

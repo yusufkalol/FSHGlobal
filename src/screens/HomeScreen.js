@@ -5,7 +5,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import HomeGridItem from '../components/HomeGridItem';
 import {loadHomeGrid} from '../redux/actions/HomeGridAction';
 
-const HomeScreen = ({homeGrid, loadHomeGrid}) => {
+const HomeScreen = ({homeGrid, loadHomeGrid, navigation}) => {
   useEffect(() => {
     loadHomeGrid();
   });
@@ -14,7 +14,9 @@ const HomeScreen = ({homeGrid, loadHomeGrid}) => {
     <View style={styles.container}>
       <FlatList
         data={homeGrid}
-        renderItem={({item}) => <HomeGridItem gridItem={item} />}
+        renderItem={({item}) => (
+          <HomeGridItem gridItem={item} navigation={navigation} />
+        )}
         numColumns={3}
       />
     </View>
