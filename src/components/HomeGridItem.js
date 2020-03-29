@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {Text} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+//import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class HomeGridItem extends Component {
   render() {
