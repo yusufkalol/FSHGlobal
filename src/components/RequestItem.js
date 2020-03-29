@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
+import {Avatar, Text} from 'react-native-paper';
 
 class RequestItem extends Component {
   render() {
@@ -14,11 +15,12 @@ class RequestItem extends Component {
     const myUri = '../assets/profiles/profile-002.jpg'; // success
     return (
       <View style={styles.container}>
-        <Image
+        <Avatar.Image
+          size={48}
           source={{
             uri: profileUri,
           }}
-          style={{width: 50, height: 50, borderRadius: 50}}
+          // style={{width: 50, height: 50, borderRadius: 50}}
         />
         <View style={styles.requestDetails}>
           <View style={styles.nameDateRow}>

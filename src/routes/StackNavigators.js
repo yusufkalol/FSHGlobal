@@ -5,8 +5,8 @@ import JobDetailsScreen from '../screens/JobDetailsScreen';
 import CompletedRequests from '../screens/CompletedRequests';
 import HomeScreen from '../screens/HomeScreen';
 import {createStackNavigator} from '@react-navigation/stack';
-import {View, Text, ImageBackground} from 'react-native';
-import {Button} from 'react-native-paper';
+import {View, ImageBackground} from 'react-native';
+import {Button, Text} from 'react-native-paper';
 
 const RequestTopTab = createMaterialTopTabNavigator();
 const HomeStack = createStackNavigator();

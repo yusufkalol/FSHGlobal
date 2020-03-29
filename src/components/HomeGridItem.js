@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import {Text} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 class HomeGridItem extends Component {
