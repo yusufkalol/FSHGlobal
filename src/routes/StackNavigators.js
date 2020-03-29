@@ -54,7 +54,7 @@ export const HomeStackScreen = () => {
           headerStyle: {
             height: 110,
           },
-          title: 'Hi, Mustafa',
+          title: 'Hello, Yusuf Hamza',
           header: ({scene, previous, navigation}) => {
             const {options} = scene.descriptor;
             const title =
