@@ -106,6 +106,6 @@ export const AccountStackScreen = ({props}) => {
 
 const styles = StyleSheet.create({
   profileView: {
-    height: 210,
+    height: 220,
   },
 });

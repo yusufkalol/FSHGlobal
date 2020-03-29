@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   count: {
     alignSelf: 'center',
     fontSize: 18,
-    fontWeight: '100',
+    fontWeight: '200',
   },
   iconAlignment: {
     justifyContent: 'center',
