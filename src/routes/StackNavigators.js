@@ -5,7 +5,7 @@ import JobDetailsScreen from '../screens/JobDetailsScreen';
 import CompletedRequests from '../screens/CompletedRequests';
 import HomeScreen from '../screens/HomeScreen';
 import {createStackNavigator} from '@react-navigation/stack';
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground} from 'react-native';
 import {Button} from 'react-native-paper';
 
 const RequestTopTab = createMaterialTopTabNavigator();
@@ -54,7 +54,7 @@ export const HomeStackScreen = () => {
           headerStyle: {
             height: 110,
           },
-          title: 'Hello, Yusuf Hamza',
+          title: 'Hello, Yusuf',
           header: ({scene, previous, navigation}) => {
             const {options} = scene.descriptor;
             const title =
@@ -64,7 +64,7 @@ export const HomeStackScreen = () => {
                 ? options.title
                 : scene.route.name;
 
-            return <MyHeader title={title} style={options.headerStyle} />;
+            return <MyHeader title={title} style={styles.profileView} />;
           },
         }}
       />
@@ -103,3 +103,9 @@ export const AccountStackScreen = ({props}) => {
     </AccountStack.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  profileView: {
+    height: 210,
+  },
+});

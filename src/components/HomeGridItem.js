@@ -13,6 +13,7 @@ class HomeGridItem extends Component {
           gridItem.itemName === 'New Ticket' && navigation.push('JobDetails')
         }>
         <Icon
+          style={styles.iconAlignment}
           name={gridItem.icon.iconName}
           size={30}
           color={gridItem.icon.iconColor}
@@ -39,7 +40,12 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   count: {
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
+    fontSize: 18,
+    fontWeight: '100',
+  },
+  iconAlignment: {
+    justifyContent: 'center',
   },
 });
 
