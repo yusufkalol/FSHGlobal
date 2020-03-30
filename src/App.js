@@ -6,20 +6,24 @@ import configureStore from './redux/configureStore';
 
 const store = configureStore();
 
-// const theme = {
-//   ...DefaultTheme,
-//   colors: {
-//     ...DefaultTheme.colors,
-//     primary: '#F67280',
-//     accent: '#f1c40f',
-//   },
-// };
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    // primary: '#818FFF', // blue
+    // accent: '#E8A590', // pink
+    /* from react-native-login-template */
+    primary: '#600EE6',
+    accent: '#414757',
+    error: '#f13a59',
+  },
+};
 
 class App extends Component {
   render() {
     return (
       <ReduxProvider store={store}>
-        <PaperProvider>
+        <PaperProvider theme={theme}>
           <Routes />
         </PaperProvider>
       </ReduxProvider>

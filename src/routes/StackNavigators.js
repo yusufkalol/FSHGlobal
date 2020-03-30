@@ -52,7 +52,7 @@ export const HomeStackScreen = () => {
         component={HomeScreen}
         options={{
           headerStyle: {
-            height: 110,
+            height: 220,
           },
           title: 'Hello, Yusuf',
           header: ({scene, previous, navigation}) => {
@@ -64,7 +64,7 @@ export const HomeStackScreen = () => {
                 ? options.title
                 : scene.route.name;
 
-            return <MyHeader title={title} style={styles.profileView} />;
+            return <MyHeader title={title} style={options.headerStyle} />;
           },
         }}
       />
@@ -103,9 +103,3 @@ export const AccountStackScreen = ({props}) => {
     </AccountStack.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  profileView: {
-    height: 220,
-  },
-});
