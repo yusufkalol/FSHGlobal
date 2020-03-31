@@ -35,29 +35,15 @@ const AuthScreen = ({auth, restoreTokenAction}) => {
       restoreTokenAction();
     }, 2000);
   }, []);
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        {auth.isLoading ? (
-          // We haven't finished checking for the token yet
-          <Stack.Screen name="Splash" component={SplashScreen} />
-        ) : auth.userToken == null ? (
-          // No token found, user isn't signed in
-          <Stack.Screen
-            name="SignIn"
-            component={SignInScreen}
-            options={{
-              title: 'Sign in',
-              // When logging out, a pop animation feels intuitive
-              animationTypeForReplace: auth.isSignout ? 'pop' : 'push',
-            }}
-          />
-        ) : (
-          // User is signed in
-          <Stack.Screen name="Routes" component={Routes} />
-        )}
-      </Stack.Navigator>
-    </NavigationContainer>
+  return auth.isLoading ? (
+    // We haven't finished checking for the token yet
+    <SplashScreen />
+  ) : auth.userToken == null ? (
+    // No token found, user isn't signed in
+    <SignInScreen />
+  ) : (
+    // User is signed in
+    <Routes />
   );
 };
 
