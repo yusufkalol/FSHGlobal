@@ -5,8 +5,10 @@ import {restoreTokenAction, signInAction} from '../redux/actions/AuthAction';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Routes from '../routes/Routes';
-// import SignInScreen from '../components/SignInScreen';
+import Dashboard from '../screens/Dashboard';
 import LoginScreen from '../screens/LoginScreen';
+import RegisterScreen from '../screens/RegisterScreen';
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 
 function SplashScreen() {
   return (
@@ -34,16 +36,56 @@ const AuthScreen = ({auth, restoreTokenAction}) => {
   useEffect(() => {
     setTimeout(() => {
       restoreTokenAction();
-    }, 2000);
+    }, 500);
   }, []);
-  return auth.isLoading ? (
-    // We haven't finished checking for the token yet
-    <SplashScreen />
-  ) : auth.userToken == null ? (
-    <LoginScreen />
-  ) : (
-    // User is signed in
-    <Routes />
+  return (
+    <NavigationContainer>
+      <Stack.Navigator headerMode="none" initialRouteName="Dashboard">
+        {auth.isLoading ? (
+          // We haven't finished checking for the token yet
+          <Stack.Screen name="Splash" component={SplashScreen} />
+        ) : auth.userToken == null ? (
+          // No token found, user isn't signed in
+          <>
+            <Stack.Screen
+              name="Dashboard"
+              component={Dashboard}
+              options={{
+                // When logging out, a pop animation feels intuitive
+                animationTypeForReplace: auth.isSignout ? 'pop' : 'push',
+              }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={LoginScreen}
+              options={{
+                // When logging out, a pop animation feels intuitive
+                animationTypeForReplace: auth.isSignout ? 'pop' : 'push',
+              }}
+            />
+            <Stack.Screen
+              name="Register"
+              component={RegisterScreen}
+              options={{
+                // When logging out, a pop animation feels intuitive
+                animationTypeForReplace: auth.isSignout ? 'pop' : 'push',
+              }}
+            />
+            <Stack.Screen
+              name="ResetPassword"
+              component={ForgotPasswordScreen}
+              options={{
+                // When logging out, a pop animation feels intuitive
+                animationTypeForReplace: auth.isSignout ? 'pop' : 'push',
+              }}
+            />
+          </>
+        ) : (
+          // User is signed in
+          <Stack.Screen name="Routes" component={Routes} />
+        )}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
