@@ -3,6 +3,7 @@ import Routes from './routes/Routes';
 import {Provider as ReduxProvider} from 'react-redux';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
 import configureStore from './redux/configureStore';
+import AuthScreen from './auth/AuthScreen';
 
 const store = configureStore();
 
@@ -24,7 +25,7 @@ class App extends Component {
     return (
       <ReduxProvider store={store}>
         <PaperProvider theme={theme}>
-          <Routes />
+          <AuthScreen />
         </PaperProvider>
       </ReduxProvider>
     );
