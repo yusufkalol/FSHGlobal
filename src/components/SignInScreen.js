@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {View, TextInput, Button} from 'react-native';
 import {signInAction} from '../redux/actions/AuthAction';

@@ -25,7 +25,7 @@ export function restoreTokenAction() {
 export function signInAction(data) {
   return function(dispatch) {
     const bootstrapAsync = () => {
-      let userToken = null;
+      let userToken = 'dummy-auth-token';
       // try {
       //   // userToken = await AsyncStorage.getItem('userToken');
       // } catch (e) {
@@ -37,7 +37,7 @@ export function signInAction(data) {
 
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
-      dispatch({type: 'SIGN_IN', userToken: 'dummy-auth-token'});
+      dispatch({type: 'SIGN_IN', userToken: userToken});
     };
     bootstrapAsync();
     // dispatch({type: 'SIGN_IN', userToken: 'dummy-auth-token'});

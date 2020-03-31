@@ -5,7 +5,8 @@ import {restoreTokenAction, signInAction} from '../redux/actions/AuthAction';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Routes from '../routes/Routes';
-import SignInScreen from '../components/SignInScreen';
+// import SignInScreen from '../components/SignInScreen';
+import LoginScreen from '../screens/LoginScreen';
 
 function SplashScreen() {
   return (
@@ -39,8 +40,7 @@ const AuthScreen = ({auth, restoreTokenAction}) => {
     // We haven't finished checking for the token yet
     <SplashScreen />
   ) : auth.userToken == null ? (
-    // No token found, user isn't signed in
-    <SignInScreen />
+    <LoginScreen />
   ) : (
     // User is signed in
     <Routes />
