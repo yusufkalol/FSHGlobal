@@ -1,9 +1,15 @@
 import React, {useEffect} from 'react';
 import {View, StyleSheet, TouchableOpacity} from 'react-native';
-import {Avatar, Text, Divider} from 'react-native-paper';
+import {
+  Avatar,
+  Text,
+  Surface,
+  Caption,
+  Title,
+  Subheading,
+} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {AppStyles, colors} from '../Styles';
-import {LightLabel} from '../components/Text/LightLabel';
 
 const JobDetailsScreen = () => {
   return (
@@ -23,24 +29,20 @@ const JobDetailsScreen = () => {
             />
           </View>
           <View style={styles.jobTaskWrapper}>
-            <LightLabel style={[AppStyles.lightLabel, styles.jobTask]}>
-              Job Task
-            </LightLabel>
+            <Caption style={styles.jobTask}>Job Task</Caption>
             <Text>LG-Machine Spare</Text>
-            <Text style={[{paddingLeft: 15}, {color: colors.skyBlue}]}>
-              NEW-SALE
-            </Text>
+            <Text style={styles.jobType}>NEW-SALE</Text>
           </View>
           <View style={styles.bookingWrapper}>
-            <LightLabel style={AppStyles.fB50}>Booking for</LightLabel>
-            <LightLabel style={AppStyles.fB40}>Job fees</LightLabel>
+            <Caption style={AppStyles.fB50}>Booking for</Caption>
+            <Caption style={AppStyles.fB40}>Job fees</Caption>
             <Text style={AppStyles.fB50}>20th Jan, 09-11:00</Text>
             <Text style={AppStyles.fB40}>
               200 / <Text style={{color: colors.skyBlue}}>Cash</Text>
             </Text>
           </View>
           <View style={styles.addressWrapper}>
-            <LightLabel style={AppStyles.lightLabel}>My Address</LightLabel>
+            <Caption style={AppStyles.lightLabel}>My Address</Caption>
             <Text>
               Home, 140 Shraddha Apartment, Ashirwad Society, Near ICICI Bank,
               Vadodra, Landmark: Opp. Gandhi Statue
@@ -48,24 +50,37 @@ const JobDetailsScreen = () => {
           </View>
         </View>
       </View>
-      <Divider style={{height: 3}} />
       <View style={styles.actionContainer}>
         {[
           ['cancel', 'Cancel'],
           ['cached', 'Reschedule'],
           ['account', 'Profile'],
         ].map(item => (
-          <TouchableOpacity style={styles.actionButton}>
+          <Surface style={styles.actionButton}>
             <Icon name={item[0]} size={20} style={{color: colors.textGrey}} />
-            <Text style={[{paddingLeft: 10}, {color: colors.textGrey}]}>
-              {item[1]}
-            </Text>
-          </TouchableOpacity>
+            <Text style={styles.actionButtonText}>{item[1]}</Text>
+          </Surface>
         ))}
       </View>
-      <Divider style={{height: 3}} />
-      <View style={{flex: 3}}>
-        <Text>Status</Text>
+      <View style={styles.statusContainer}>
+        <Subheading>Job Status</Subheading>
+        <View style={styles.statusWrapper}>
+          <View style={styles.statusItem}>
+            <Icon name={'circle'} size={20} style={{color: 'green'}} />
+            <Text>Booking Accepted</Text>
+            <Caption>Booking accepted on 19th Jan 08:32</Caption>
+          </View>
+          <View style={styles.statusItem}>
+            <Icon name={'circle'} size={20} style={{color: 'green'}} />
+            <Text>Job in process</Text>
+            <Caption>Booking accepted on 20th Jan 09:00 - 11:00</Caption>
+          </View>
+          <View style={styles.statusItem}>
+            <Icon name={'circle'} size={20} style={{color: 'green'}} />
+            <Text>Job Finished</Text>
+            <Caption>Job Completed on 12:30 | Client Reviewed 4</Caption>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -74,14 +89,16 @@ const JobDetailsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20,
   },
+  /* Details Container Style */
   detailsContainer: {
-    flex: 3,
+    flex: 5,
     flexDirection: 'row',
-    marginBottom: 20,
+    marginBottom: 3,
+    paddingTop: 20,
     paddingLeft: 20,
     paddingRight: 5,
+    backgroundColor: '#fff',
   },
   jobDescription: {
     flex: 1,
@@ -102,6 +119,11 @@ const styles = StyleSheet.create({
   jobTask: {
     width: '100%',
   },
+  jobType: {
+    marginLeft: 10,
+    color: colors.skyBlue,
+    fontSize: 12,
+  },
   bookingWrapper: {
     flex: 0,
     flexDirection: 'row',
@@ -113,6 +135,8 @@ const styles = StyleSheet.create({
     flex: 0,
     paddingRight: 10,
   },
+
+  /* Action Container Style */
   actionContainer: {
     flex: 1,
     flexDirection: 'row',
@@ -122,8 +146,26 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRightWidth: 3,
-    borderColor: colors.textGrey,
+    elevation: 2,
+    marginRight: 3,
+  },
+  actionButtonText: {
+    paddingLeft: 10,
+    color: colors.textGrey,
+  },
+
+  /* Status Container Style */
+  statusContainer: {
+    flex: 4,
+    paddingTop: 10,
+    paddingLeft: 20,
+    paddingRight: 5,
+  },
+  statusWrapper: {
+    flex: 0,
+  },
+  statusItem: {
+    flexDirection: 'row',
   },
 });
 export default JobDetailsScreen;

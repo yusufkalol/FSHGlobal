@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 export const AppStyles = StyleSheet.create({
   fB50: {
-    flexBasis: '50%',
+    flexBasis: '60%',
   },
   fB40: {
     flexBasis: '40%',

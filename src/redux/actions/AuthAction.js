@@ -4,6 +4,7 @@ export function restoreTokenAction() {
   return function(dispatch) {
     // dispatch({type: types.RESTORE_TOKEN, userToken: 'dummy-auth'});
     const bootstrapAsync = () => {
+      // let userToken = null;
       let userToken = null;
       // try {
       //   // userToken = await AsyncStorage.getItem('userToken');
