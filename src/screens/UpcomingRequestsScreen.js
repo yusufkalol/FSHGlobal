@@ -2,7 +2,8 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {loadRequests} from '../redux/actions/RequestsActions';
 
-import {View, Text, StyleSheet, SectionList} from 'react-native';
+import {View, StyleSheet, SectionList} from 'react-native';
+import {Text, Divider} from 'react-native-paper';
 import RequestItem from '../components/RequestItem';
 // import {newRequest, upcomingRequest} from '../assets/RequestData';
 
@@ -14,16 +15,7 @@ const UpcomingRequestsScreen = ({loadRequests, requests}) => {
     });
   }, []);
 
-  getItemSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 3,
-          backgroundColor: '#CED0CE',
-        }}
-      />
-    );
-  };
+  getItemSeparator = () => <Divider style={{height: 3}} />;
 
   return (
     <View style={styles.container}>

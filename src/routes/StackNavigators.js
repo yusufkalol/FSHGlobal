@@ -5,7 +5,7 @@ import JobDetailsScreen from '../screens/JobDetailsScreen';
 import CompletedRequests from '../screens/CompletedRequests';
 import HomeScreen from '../screens/HomeScreen';
 import {createStackNavigator} from '@react-navigation/stack';
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground} from 'react-native';
 import {Button} from 'react-native-paper';
 
 const RequestTopTab = createMaterialTopTabNavigator();
@@ -52,9 +52,9 @@ export const HomeStackScreen = () => {
         component={HomeScreen}
         options={{
           headerStyle: {
-            height: 110,
+            height: 220,
           },
-          title: 'Hello, Yusuf Hamza',
+          title: 'Hello, Yusuf',
           header: ({scene, previous, navigation}) => {
             const {options} = scene.descriptor;
             const title =
