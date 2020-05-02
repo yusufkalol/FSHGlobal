@@ -10,9 +10,7 @@ export function getRequests() {
 
 export function verifyUser(mobileNo, password) {
   // return fetch(BASE_URL + 'newRequest')
-  return fetch(
-    `http://service007.in/dms/appservices.asmx/Login?username=9444866896&password=pass`,
-  )
+  return fetch(BASE_URL + `Login?username=${mobileNo}&password=${password}`)
     .then(handleResponse)
     .catch(handleError);
 }
