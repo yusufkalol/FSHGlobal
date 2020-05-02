@@ -10,38 +10,38 @@ import {theme} from '../core/theme';
 import Button from '../components/Button';
 
 const ForgotPasswordScreen = ({navigation}) => {
-  const [email, setEmail] = useState({value: '', error: ''});
+  const [mobileNo, setMbileNo] = useState({value: '', error: ''});
 
   const _onSendPressed = () => {
-    const emailError = emailValidator(email.value);
+    const mobileNoError = emailValidator(mobileNo.value);
 
-    if (emailError) {
-      setEmail({...email, error: emailError});
+    if (mobileNoError) {
+      setMbileNo({...mobileNo, error: mobileNoError});
       return;
     }
 
-    navigation.navigate('LoginScreen');
+    navigation.navigate('Login');
   };
 
   return (
     <Background>
-      <BackButton goBack={() => navigation.navigate('LoginScreen')} />
+      <BackButton goBack={() => navigation.navigate('Login')} />
 
       <Logo />
 
       <Header>Restore Password</Header>
 
       <TextInput
-        label="E-mail address"
+        label="Mobile Number"
         returnKeyType="done"
-        value={email.value}
-        onChangeText={text => setEmail({value: text, error: ''})}
-        error={!!email.error}
-        errorText={email.error}
+        value={mobileNo.value}
+        onChangeText={text => setMbileNo({value: text, error: ''})}
+        error={!!mobileNo.error}
+        errorText={mobileNo.error}
         autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
+        autoCompleteType="tel"
+        textContentType="telephoneNumber"
+        keyboardType="phone-pad"
       />
 
       <Button mode="contained" onPress={_onSendPressed} style={styles.button}>
@@ -50,7 +50,7 @@ const ForgotPasswordScreen = ({navigation}) => {
 
       <TouchableOpacity
         style={styles.back}
-        onPress={() => navigation.navigate('LoginScreen')}>
+        onPress={() => navigation.navigate('Login')}>
         <Text style={styles.label}>← Back to login</Text>
       </TouchableOpacity>
     </Background>

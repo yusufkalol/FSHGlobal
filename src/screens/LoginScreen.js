@@ -10,23 +10,23 @@ import Button from '../components/Button';
 import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
 import {theme} from '../core/theme';
-import {emailValidator, passwordValidator} from '../core/utils';
+import {mobileNoValidator, passwordValidator} from '../core/utils';
 
 const LoginScreen = ({auth, signInAction, navigation}) => {
-  const [email, setEmail] = useState({value: '', error: ''});
+  const [mobileNo, setMobileNo] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
 
   const _onLoginPressed = () => {
-    const emailError = emailValidator(email.value);
+    const mobileNoError = mobileNoValidator(mobileNo.value);
     const passwordError = passwordValidator(password.value);
 
-    if (emailError || passwordError) {
-      setEmail({...email, error: emailError});
+    if (mobileNoError || passwordError) {
+      setMobileNo({...mobileNo, error: mobileNoError});
       setPassword({...password, error: passwordError});
       return;
     }
 
-    signInAction();
+    signInAction(mobileNo.value, password.value);
   };
 
   return (
@@ -38,16 +38,16 @@ const LoginScreen = ({auth, signInAction, navigation}) => {
       <Header>Welcome back.</Header>
 
       <TextInput
-        label="Email"
+        label="Mobile-Number"
         returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({value: text, error: ''})}
-        error={!!email.error}
-        errorText={email.error}
+        value={mobileNo.value}
+        onChangeText={text => setMobileNo({value: text, error: ''})}
+        error={!!mobileNo.error}
+        errorText={mobileNo.error}
         autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
+        autoCompleteType="tel"
+        textContentType="telephoneNumber"
+        keyboardType="phone-pad"
       />
 
       <TextInput
@@ -61,8 +61,7 @@ const LoginScreen = ({auth, signInAction, navigation}) => {
       />
 
       <View style={styles.forgotPassword}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('ForgotPasswordScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ResetPassword')}>
           <Text style={styles.label}>Forgot your password?</Text>
         </TouchableOpacity>
       </View>
@@ -90,7 +89,10 @@ function mapStateToProps(state, ownProps) {
 const mapDispatchToProps = {
   signInAction,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(LoginScreen);
 
 const styles = StyleSheet.create({
   forgotPassword: {

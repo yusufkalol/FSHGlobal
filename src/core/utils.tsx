@@ -18,3 +18,13 @@ export const nameValidator = (name: string) => {
 
   return '';
 };
+
+export const mobileNoValidator = (mobileNo: string) => {
+  const re = /^[0][1-9]\d{9}$|^[1-9]\d{9}$/;
+
+  if (!mobileNo || mobileNo.length <= 0)
+    return 'Mobile Number cannot be empty.';
+  if (!re.test(mobileNo)) return 'Ooops! We need a valid mobile number.';
+
+  return '';
+};

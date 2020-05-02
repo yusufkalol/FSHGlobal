@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import {verifyUser} from '../../api/requestApi';
 
 export function restoreTokenAction() {
   return function(dispatch) {
@@ -23,9 +24,14 @@ export function restoreTokenAction() {
   };
 }
 
-export function signInAction(data) {
+export function signInAction(mobileNo, password) {
   return function(dispatch) {
     const bootstrapAsync = () => {
+      //Api Call
+      verifyUser(mobileNo, password).then(function(data) {
+        console.log(data.username);
+      });
+
       let userToken = 'dummy-auth-token';
       // try {
       //   // userToken = await AsyncStorage.getItem('userToken');

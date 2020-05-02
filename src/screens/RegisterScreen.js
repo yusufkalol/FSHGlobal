@@ -7,21 +7,25 @@ import Button from '../components/Button';
 import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
 import {theme} from '../core/theme';
-import {emailValidator, passwordValidator, nameValidator} from '../core/utils';
+import {
+  passwordValidator,
+  nameValidator,
+  mobileNoValidator,
+} from '../core/utils';
 
 const RegisterScreen = ({navigation}) => {
   const [name, setName] = useState({value: '', error: ''});
-  const [email, setEmail] = useState({value: '', error: ''});
+  const [mobileNo, setMobileNo] = useState({value: '', error: ''});
   const [password, setPassword] = useState({value: '', error: ''});
 
   const _onSignUpPressed = () => {
     const nameError = nameValidator(name.value);
-    const emailError = emailValidator(email.value);
+    const mobileNoError = mobileNoValidator(mobileNo.value);
     const passwordError = passwordValidator(password.value);
 
-    if (emailError || passwordError || nameError) {
+    if (mobileNoError || passwordError || nameError) {
       setName({...name, error: nameError});
-      setEmail({...email, error: emailError});
+      setMobileNo({...mobileNo, error: mobileNoError});
       setPassword({...password, error: passwordError});
       return;
     }
@@ -47,16 +51,16 @@ const RegisterScreen = ({navigation}) => {
       />
 
       <TextInput
-        label="Email"
+        label="Mobile-Number"
         returnKeyType="next"
-        value={email.value}
-        onChangeText={text => setEmail({value: text, error: ''})}
-        error={!!email.error}
-        errorText={email.error}
+        value={mobileNo.value}
+        onChangeText={text => setMobileNo({value: text, error: ''})}
+        error={!!mobileNo.error}
+        errorText={mobileNo.error}
         autoCapitalize="none"
-        autoCompleteType="email"
-        textContentType="emailAddress"
-        keyboardType="email-address"
+        autoCompleteType="tel"
+        textContentType="telephoneNumber"
+        keyboardType="phone-pad"
       />
 
       <TextInput
