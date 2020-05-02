@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {View, TextInput, Button} from 'react-native';
 import {signInAction} from '../redux/actions/AuthAction';
-
+//Login Screen Is Used as of now
 function SignInScreen({auth, signInAction}) {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -35,4 +35,7 @@ const mapDispatchToProps = {
   signInAction,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SignInScreen);
