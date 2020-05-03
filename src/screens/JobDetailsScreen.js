@@ -21,7 +21,7 @@ const JobDetailsScreen = () => {
         />
         <View style={styles.jobDescription}>
           <View style={styles.nameWrapper}>
-            <Text style={styles.customerName}>Alizam Smith</Text>
+            <Text style={styles.customerName}>Ram</Text>
             <Icon
               name="chat"
               size={24}
@@ -30,8 +30,8 @@ const JobDetailsScreen = () => {
           </View>
           <View style={styles.jobTaskWrapper}>
             <Caption style={styles.jobTask}>Job Task</Caption>
-            <Text>LG-Machine Spare</Text>
-            <Text style={styles.jobType}>NEW-SALE</Text>
+            <Text>HONDA-Macro filter</Text>
+            <Text style={styles.jobType}>AMC</Text>
           </View>
           <View style={styles.bookingWrapper}>
             <Caption style={AppStyles.fB50}>Booking for</Caption>

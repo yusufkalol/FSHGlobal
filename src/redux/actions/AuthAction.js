@@ -25,14 +25,21 @@ export function restoreTokenAction() {
 }
 
 export function signInAction(mobileNo, password) {
+  console.log('mobileno', mobileNo);
+
   return function(dispatch) {
     const bootstrapAsync = () => {
       //Api Call
-      verifyUser(mobileNo, password).then(function(data) {
-        console.log(data.username);
-      });
+      let userToken = null;
+      verifyUser(mobileNo, password)
+        .then(function(data) {
+          if (data.status != 0) userToken = 'dummy-token';
+        })
+        .then(function() {
+          console.log('l: ', userToken);
+          dispatch({type: 'SIGN_IN', userToken: userToken});
+        });
 
-      let userToken = 'dummy-auth-token';
       // try {
       //   // userToken = await AsyncStorage.getItem('userToken');
       // } catch (e) {
@@ -44,7 +51,6 @@ export function signInAction(mobileNo, password) {
 
       // This will switch to the App screen or Auth screen and this loading
       // screen will be unmounted and thrown away.
-      dispatch({type: 'SIGN_IN', userToken: userToken});
     };
     bootstrapAsync();
     // dispatch({type: 'SIGN_IN', userToken: 'dummy-auth-token'});

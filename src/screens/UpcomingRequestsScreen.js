@@ -5,15 +5,16 @@ import {loadRequests} from '../redux/actions/RequestsActions';
 import {View, StyleSheet, SectionList} from 'react-native';
 import {Text, Divider} from 'react-native-paper';
 import RequestItem from '../components/RequestItem';
+import {newRequest, upcomingRequest} from '../assets/RequestData';
 // import {newRequest, upcomingRequest} from '../assets/RequestData';
 
 const UpcomingRequestsScreen = ({loadRequests, requests}) => {
-  useEffect(() => {
-    console.log(requests);
-    loadRequests().catch(error => {
-      alert('Loading requests failed ' + error);
-    });
-  }, []);
+  // useEffect(() => {
+  //   console.log(requests);
+  //   loadRequests().catch(error => {
+  //     alert('Loading requests failed ' + error);
+  //   });
+  // }, []);
 
   getItemSeparator = () => <Divider style={{height: 3}} />;
 
@@ -21,8 +22,8 @@ const UpcomingRequestsScreen = ({loadRequests, requests}) => {
     <View style={styles.container}>
       <SectionList
         sections={[
-          {title: 'New Job Requests', data: requests},
-          {title: 'Upcoming Accepted Jobs', data: requests},
+          {title: 'New Job Requests', data: newRequest},
+          {title: 'Upcoming Accepted Jobs', data: upcomingRequest},
         ]}
         renderItem={({item}) => <RequestItem item={item} />}
         renderSectionHeader={({section}) => (

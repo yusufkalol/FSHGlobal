@@ -2,7 +2,7 @@ export const homeGrid = [
   {
     key: '1',
     itemName: 'New Ticket',
-    count: '15',
+    count: '3',
     icon: {
       iconName: 'receipt',
       iconFont: 'ionicon',
@@ -12,7 +12,7 @@ export const homeGrid = [
   {
     key: '2',
     itemName: 'Closed',
-    count: '29',
+    count: '10',
     icon: {
       iconName: 'close',
       iconFont: 'ionicon',
@@ -22,7 +22,7 @@ export const homeGrid = [
   {
     key: '3',
     itemName: 'Re-open',
-    count: '7',
+    count: '15',
     icon: {
       iconName: 'loop',
       iconFont: 'ionicon',
