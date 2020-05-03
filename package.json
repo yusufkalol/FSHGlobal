@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native run-android",
-    "start:android": "react-native run-android",
+    "start": "react-native start",
+    "android": "react-native run-android",
     "prestart:api": "node tools/createMockDb.js",
     "start:api": "node tools/apiServer.js",
     "ios": "react-native run-ios",
